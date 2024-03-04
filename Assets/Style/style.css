@@ -1,121 +1,140 @@
-body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-image: url("https://blog.jitter.video/content/images/2022/01/perfectly-looped-gif.gif");
-  background-repeat: no-repeat;
-  background-size: cover;
+* {
+  box-sizing: border-box;
   margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  padding: 0.5;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.music-player {
-  text-align: center;
-  background-color: #f5f5f5;
-  padding: 50px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 20px;
-  color: #f8b966;
+body {
+  background-color: rgb(255, 255, 255);
 }
 
-.music-player h1 {
-  margin-top: 5px;
-  color: #f8b966;
-  animation: colorChange 2s infinite alternate;
-}
-
-@keyframes colorChange {
-  from {
-    color: #f8b966;
-  }
-  to {
-    color: #5a8591;
-  }
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  padding: 15px;
-  margin: 10px;
-  cursor: pointer;
-  background-color: #5a8591;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  perspective: 1000px;
-}
-
-li:hover {
-  background-color: #ffcb7d;
-  color: #5a8591;
-  font-style: italic;
-  font-weight: bold;
-}
-
-.popup {
-  font-size: 30px;
-  font-weight: bold;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #ffffff;
+.container {
+  background: white;
+  border: 3px solid #8abd91;
+  max-width: 800px;
+  margin: 60px auto;
+  height: 1080px;
   padding: 20px;
-  padding-bottom: 40px;
-  border-radius: 10px;
-  box-shadow: 0 0 60px #f8b966;
-  z-index: 1;
-  opacity: 0;
-  animation: fadeIn 0.5s ease-in-out forwards;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.5s ease;
+  color: #8abd91;
 }
 
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-.card {
-  width: 400px;
-  height: 500px;
-  transform-style: preserve-3d;
-  perspective: 1000px;
-}
-
-#popupAlbumCover {
-  width: 310px;
-  height: 310px;
-  margin-top: 30px;
-  transform-style: preserve-3d;
-  animation: flipAnimation 1.5s ease-in-out;
-  box-shadow: 0 20px 30px #0a343f;
-}
-
-@keyframes flipAnimation {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(360deg);
-  }
-}
-
-.close-btn {
-  position: absolute;
-  top: -4px;
-  right: 7px;
-  font-size: 30px;
+.color-change-button {
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
   cursor: pointer;
-  color: #ffcb7d;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #8abd91;
+  color: #ffffff;
+  border: 2px solid #154734;
 }
 
-.close-btn:hover {
-  color: rgb(111, 134, 156);
+.color-change-button:hover {
+  background-color: #154734;
+  color: #ffffff;
+  border: 2px solid #8abd91;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.img-area {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  margin: 25px auto;
+  border: 15px outset #8abd91;
+}
+
+.img-area img {
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header {
+  text-align: center;
+}
+
+.header h1 {
+  margin-bottom: 10px;
+}
+
+.header h4 {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.left {
+  flex: 1;
+  padding: 30px;
+}
+
+.left p {
+  line-height: 2;
+  font-size: 15px;
+}
+
+h2 {
+  background-color: #154734;
+  padding: 20px;
+  color: whitesmoke;
+  margin: 20px 0;
+  font-size: 20px;
+  border-radius: 50px 0px 50px 0px;
+}
+
+.right {
+  flex: 1;
+  padding: 30px;
+}
+
+.right h2 {
+  margin-bottom: 15px;
+}
+
+.right p {
+  line-height: 1.5;
+  text-align: justify;
+  font-size: 15px;
+}
+
+.right ul li {
+  line-height: 1.5;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .container {
+    width: 95%;
+    height: auto;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .main {
+    flex-direction: column;
+  }
+  .left,
+  .right {
+    flex: none;
+    width: 100%;
+  }
+  .container {
+    width: 95%;
+    height: auto;
+  }
+  h2 {
+    font-size: 15px;
+  }
 }
